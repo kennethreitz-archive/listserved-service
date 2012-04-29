@@ -1,0 +1,1 @@
+web: gunicorn fedex:app -k gunicorn -b 0.0.0.0:$PORT
