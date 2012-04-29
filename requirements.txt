@@ -1,6 +1,7 @@
 Flask==0.8
 Flask-Bcrypt==0.5.2
 Flask-Celery==2.4.2
+Flask-DebugToolbar==0.6.3.1
 Flask-SQLAlchemy==0.16
 Flask-Script==0.3.3
 Jinja2==2.6
