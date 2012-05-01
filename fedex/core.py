@@ -17,13 +17,12 @@ from flask.ext.celery import Celery
 app = Flask(__name__)
 app.secret_key = os.environ.get('APP_SECRET', 'some-secret-key')
 app.debug = 'DEBUG' in os.environ
+# app.debug = False
 
 # Use gevent workers for celery.
 app.config['CELERYD_POOL'] = 'gevent'
-
 app.config['DEBUG_TB_ENABLED'] = True
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
-
 
 # Bootstrap Heroku environment variables.
 heroku = Heroku(app)
@@ -33,6 +32,10 @@ sslify = SSLify(app)
 
 # Setup error collection
 sentry = Sentry(app)
+
+# Task queue
+celery = Celery(app)
+
 
 @app.route('/')
 def hello_world():
